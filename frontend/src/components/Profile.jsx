@@ -35,7 +35,7 @@ const Profile = () => {
       //follow
       try {
         const res = await axios.post(backendUrl + `/follow/${id}`, {id:user?._id})
-        console.log(res)
+        // console.log(res)
         toast.success(res.data.message)
         dispatch(followingUpdate(id))
         dispatch(getRefresh())

@@ -13,6 +13,7 @@ const useOtherUsers = (id) =>{
         const fetchOtheUser = async () => {
                 try {
                     const res = await axios.get(backendUrl + `/otherusers/${id}`)
+                    //   console.log(res)
                     dispatch(getOtherUser(res.data.otherUser))
                 } catch (error) {
                     console.log(error)
