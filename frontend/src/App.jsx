@@ -1,13 +1,13 @@
 import React from 'react'
 import Body from './components/Body'
-// import Home from './components/Home'
+import {ToastContainer} from "react-toastify"
 
 
 const App = () => {
   return (
     <div>
         <Body/>
-        {/* <Home/> */}
+        <ToastContainer/>
     </div>
   )
 }

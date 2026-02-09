@@ -55,7 +55,7 @@ export const login = async (req, res) => {
 
     const user = await User.findOne({ email });
     if (!user) {
-      return res.json({
+      return res.status(404).json({
         success: false,
         message: "Email is not registered.",
       });
@@ -64,7 +64,7 @@ export const login = async (req, res) => {
     const passwordCheck = await bcrypt.compare(password, user.password);
 
     if (!passwordCheck) {
-      return res.json({
+      return res.status(401).json({
         success: false,
         message: "Password is incorrect.",
       });
@@ -85,6 +85,7 @@ export const login = async (req, res) => {
 
     return res.json({
       success: true,
+      user,
       message: `Welcome back ${user.name}`,
     });
   } catch (error) {

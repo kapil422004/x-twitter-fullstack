@@ -12,10 +12,11 @@ export const createTweet = async (req, res) => {
         message: "Field is empty.",
       });
     }
-
+    const user = await User.findById(userId)
     await Tweet.create({
       description,
       userId: userId,
+      userDetails:user
     });
 
     return res.json({

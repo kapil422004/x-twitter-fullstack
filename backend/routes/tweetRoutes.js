@@ -9,8 +9,8 @@ tweetRouter.post("/createtweet", isUserAuthenticated, createTweet)
 tweetRouter.delete("/delete/:id", isUserAuthenticated, deleteTweet)
 tweetRouter.put("/like/:id", isUserAuthenticated, likeOrDislike)
 tweetRouter.put("/bookmark/:id", isUserAuthenticated, bookmark)
-tweetRouter.post("/getTweet/:id", isUserAuthenticated, getTweet)
-tweetRouter.post("/getAllTweets", isUserAuthenticated, getAllTweets)
+tweetRouter.get("/getTweet/:id", isUserAuthenticated, getTweet)
+tweetRouter.get("/getAllTweets", isUserAuthenticated, getAllTweets)
 
 
 export default tweetRouter

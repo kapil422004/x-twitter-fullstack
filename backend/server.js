@@ -4,6 +4,7 @@ import dbconnect from "./config/dbconnect.js";
 import cookieParser from "cookie-parser";
 import router from "./routes/authRoutes.js";
 import tweetRouter from "./routes/tweetRoutes.js";
+import cors from "cors"
 const app = express();
 
 const port = process.env.PORT || 8080;
@@ -13,6 +14,11 @@ dbconnect();
 //middleware
 app.use(express.json());
 app.use(cookieParser());
+const corsOptions = {
+  origin: "http://localhost:5173",
+  credentials: true
+}
+app.use(cors(corsOptions))
 
 //api
 app.use("/api/v1/user", router);
