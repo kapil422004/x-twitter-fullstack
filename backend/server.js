@@ -12,8 +12,6 @@ const port = process.env.PORT || 8080;
 dbconnect();
 
 //middleware
-app.use(express.json());
-app.use(cookieParser());
 const corsOptions = {
   origin: ["http://localhost:5173",
   "https://x-twitter-fullstack.vercel.app",
@@ -22,6 +20,9 @@ const corsOptions = {
   credentials: true
 }
 app.use(cors(corsOptions))
+app.use(express.json());
+app.use(cookieParser());
+
 
 //api
 app.use("/api/v1/user", router);
