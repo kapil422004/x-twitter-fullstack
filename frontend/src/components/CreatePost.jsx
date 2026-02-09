@@ -5,7 +5,7 @@ import { CiImageOn } from "react-icons/ci";
 import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { getIsActive, getRefresh } from "../redux/tweetSlice";
-
+import assets from "../assets/assets";
 
 axios.defaults.withCredentials = true;
 const backendUrl = import.meta.env.VITE_BACKEND_TWEET_URL;
@@ -14,7 +14,7 @@ const CreatePost = () => {
   const dispatch = useDispatch();
 
   const [description, setDescription] = useState("");
-  const {isActive} = useSelector((store) => store.tweet)
+  const { isActive } = useSelector((store) => store.tweet);
 
   const submitHandler = async () => {
     try {
@@ -32,28 +32,29 @@ const CreatePost = () => {
     setDescription("");
   };
 
-  const forYouHandler = () =>{
-    dispatch(getIsActive(true))
-  }
+  const forYouHandler = () => {
+    dispatch(getIsActive(true));
+  };
 
-    const followingHandler = () =>{
-    dispatch(getIsActive(false))
-  }
-
+  const followingHandler = () => {
+    dispatch(getIsActive(false));
+  };
 
   return (
     <div className="w-full ">
       <div>
         <div className="flex items-center justify-evenly border-b border-gray-200">
-          <div onClick={forYouHandler} className= {`${isActive ? "border-b-4  border-[#1D9BF0]" : 'border-b-4 border-transparent' }  cursor-pointer hover:bg-gray-200 w-full text-center px-4 py-3`}>
+          <div
+            onClick={forYouHandler}
+            className={`${isActive ? "border-b-4  border-[#1D9BF0]" : "border-b-4 border-transparent"}  cursor-pointer hover:bg-gray-200 w-full text-center px-4 py-3`}
+          >
             <h1 className="font-semibold text-gray-600 text-lg">For you</h1>
           </div>
-          <div onClick={followingHandler} className={`${!isActive ? "border-b-4  border-[#1D9BF0]" : 'border-b-4 border-transparent' }  cursor-pointer hover:bg-gray-200 w-full text-center px-4 py-3`}>
-            <h1
-              className="font-semibold text-gray-600 text-lg"
-            >
-              Following
-            </h1>
+          <div
+            onClick={followingHandler}
+            className={`${!isActive ? "border-b-4  border-[#1D9BF0]" : "border-b-4 border-transparent"}  cursor-pointer hover:bg-gray-200 w-full text-center px-4 py-3`}
+          >
+            <h1 className="font-semibold text-gray-600 text-lg">Following</h1>
           </div>
         </div>
       </div>
@@ -62,7 +63,7 @@ const CreatePost = () => {
         <div className="flex items-center  p-4">
           <div>
             <Avatar
-              src="https://people.com/thmb/kr8ChjA1brcTtA0t6RhRxEs7q_Q=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(767x357:769x359):format(webp)/pam-the-office-032125-af6e4f0e93df45d0bae7db5e5f279bbb.jpg"
+              src={assets.profile_pic}
               size="50"
               round={true}
               className="object-cover"

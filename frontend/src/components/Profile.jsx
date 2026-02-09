@@ -8,6 +8,8 @@ import axios from 'axios'
 import {toast} from 'react-toastify'
 import { followingUpdate } from "../redux/userSlice";
 import { getRefresh } from "../redux/tweetSlice";
+import assets from "../assets/assets.js";
+
 
 axios.defaults.withCredentials = true
 
@@ -62,13 +64,14 @@ const Profile = () => {
           </div>
         </div>
         <img
+
           src="https://pbs.twimg.com/profile_banners/1581707412922200067/1693248932/1080x360"
           alt=""
         />
 
         <div className="absolute top-50 ml-2 border-4 border-white rounded-full">
           <Avatar
-            src="https://people.com/thmb/kr8ChjA1brcTtA0t6RhRxEs7q_Q=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(767x357:769x359):format(webp)/pam-the-office-032125-af6e4f0e93df45d0bae7db5e5f279bbb.jpg"
+          src={assets.profile_pic}
             size="120"
             round={true}
             className="object-cover"

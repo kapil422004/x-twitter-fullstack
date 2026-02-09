@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 import { useDispatch } from "react-redux";
 import { getRefresh } from "../redux/tweetSlice";
 import { useSelector } from "react-redux";
+import assets from "../assets/assets";
 
 const backendUrl = import.meta.env.VITE_BACKEND_TWEET_URL;
 
@@ -31,13 +32,13 @@ const Tweet = ({ tweet }) => {
   };
 
   const deleteHandler = async (id) => {
-      try {
-          const res = await axios.delete(backendUrl + `/delete/${id}`)
-          dispatch(getRefresh())
-      } catch (error) {
-        console.log(error)
-      }
-  }
+    try {
+      const res = await axios.delete(backendUrl + `/delete/${id}`);
+      dispatch(getRefresh());
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div className="border-b border-gray-200">
@@ -45,7 +46,7 @@ const Tweet = ({ tweet }) => {
         <div className="flex p-4">
           <div className="shrink-0">
             <Avatar
-              src="https://people.com/thmb/kr8ChjA1brcTtA0t6RhRxEs7q_Q=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(767x357:769x359):format(webp)/pam-the-office-032125-af6e4f0e93df45d0bae7db5e5f279bbb.jpg"
+              src={assets.profile_pic}
               size="50"
               round={true}
               className="object-cover"
@@ -92,7 +93,10 @@ const Tweet = ({ tweet }) => {
                 <p>0</p>
               </div>
               {user?._id === tweet?.userId && (
-                <div onClick={()=> deleteHandler(tweet?._id)} className="p-2 hover:bg-red-400 rounded-full cursor-pointer">
+                <div
+                  onClick={() => deleteHandler(tweet?._id)}
+                  className="p-2 hover:bg-red-400 rounded-full cursor-pointer"
+                >
                   <MdOutlineDelete size="22px" />
                 </div>
               )}

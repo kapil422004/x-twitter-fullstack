@@ -3,6 +3,7 @@ import Avatar from "react-avatar";
 import { CiSearch } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import assets from "../assets/assets";
 
 const RightSideBar = () => {
   const { otherUser } = useSelector((store) => store.user);
@@ -30,7 +31,7 @@ const RightSideBar = () => {
               <div className="flex items-center">
                 <div>
                   <Avatar
-                    src="https://people.com/thmb/kr8ChjA1brcTtA0t6RhRxEs7q_Q=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(767x357:769x359):format(webp)/pam-the-office-032125-af6e4f0e93df45d0bae7db5e5f279bbb.jpg"
+                    src={assets.profile_pic}
                     size="50"
                     round={true}
                     className="object-cover"
