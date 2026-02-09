@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
   origin: ["http://localhost:5173",
-  "https://x-twitter-fullstack.onrender.com"],
+  "https://x-twitter-fullstack.vercel.app"],
   credentials: true
 }
 app.use(cors(corsOptions))
